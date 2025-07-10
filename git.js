@@ -34,3 +34,11 @@
 //? git remote -v -> list remote origin
 //? git remote add origin https://github.com/saagar7200/git-class-6-pm.git  -> link with remote origin (git hub repo)
 // ? git remote remove origin  -> remove origin link
+
+
+// * git push origin <branch_name> -> to push  latest commited changes on git hub repo 
+
+
+
+// .gitignore
+

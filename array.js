@@ -207,7 +207,7 @@ const users = [
 
 // })
 
-// console.log(mappedArray)
+console.log(mappedArray)
 
 
 
