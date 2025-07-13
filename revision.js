@@ -211,12 +211,12 @@ const result = add(20,50)
 console.log(result)
 
 // arrow function
-const sub = (a,b) => {
-   return a - b
+const addition = (a,b) => {
+   return a + b
 
 }
 
-console.log(sub(30,30))
+console.log(addition(30,30))
 
 
 // call back function 
