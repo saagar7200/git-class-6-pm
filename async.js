@@ -1,53 +1,107 @@
-// asynchronous programming
-// 
-
-// blocking 
-// non-blocking
-
-// console.log('start')
-// console.log('processing')
-// console.log('end')
-
 // setTimeout
-
-// setTimeout(callback,timer)
-
-console.log('start')
+// setInterval
 
 
-setTimeout((y,z)=>{
-    console.log(name,second,y)
-    console.log('processing')
-},3000,3,18)
+// asynchronous js
 
-const timerId = setTimeout(()=>{
-    console.log('processing')
-},3000)
+// callback
 
-// clearTimeout(timerId)
+// const child = (x) =>{
+//     console.log('child')
+// }
 
-// console.log(timerId)
+// function parent (callback) {
+// // task
+// const x = 10
 
-// ! setInterval
-// ? setInterval(callback,timer)
+// callback(10)
+// }
 
-count = 0
- const timer = setInterval(()=>{
-    console.log(count++)
+// !both are same
+// parent(child)
 
-    if(count > 10){
-        clearInterval(timer)
+// parent(() =>{
+//     console.log('child')
+// })
+
+const register = (callback) => {
+  setTimeout(() => {
+    console.log("user register");
+    callback(null, { id: 1, email: "abc@gmail.com", pass: "123456" });
+  }, 3000);
+};
+
+const login = (callback) => {
+  setTimeout(() => {
+    console.log("login user");
+    callback(null, { id: 1, email: "abc@gmail.com" });
+  }, 4000);
+};
+
+const getProfile = (id) => {
+  setTimeout(() => {
+    console.log("get user profile for user", id);
+  }, 1000);
+};
+
+// register();
+// login();
+// getProfile()
+
+register((error, data) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  console.log(data);
+  login((err, data) => {
+    if (err) {
+      console.log(err);
+      return;
     }
-},1000)
+    console.log(data);
+    getProfile((err, data) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(data);
+      getProfile((err, data) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log(data);
+        getProfile(data.id);
+      });
+    });
+  });
+});
+
+// task
+
+// call back hell
+// pyramid of doom
+
+register(() => {
+  log(() => {
+    log(() => {
+      log(() => {
+        log(() => {
+          log(() => {});
+        });
+      });
+    });
+  });
+});
 
 
 
-console.log('end')
 
-// hr , min , sec 
-// sec--
-//  sec === 0 ? min-1, sec=59
-// min===0 ,sec ===0 ? hr- 1 min = 59, sec = 59
-// h===m===sec === 0 ? timer up
+// promise  & async await
 
+// es6
 
+// typescript
+
+// node js
